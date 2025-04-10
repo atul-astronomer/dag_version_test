@@ -19,7 +19,7 @@ with DAG(
 ) as dag:
     @task(outlets=[outlet])
     def asset_with_extra_by_yield():
-        yield Metadata(outlet, {"hi": "bye1"})
+        yield Metadata(outlet, {"hi": "bye"})
 
     asset_with_extra_by_yield()
 
