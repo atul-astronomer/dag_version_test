@@ -1,17 +1,17 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from airflow.sdk import Asset
 from airflow.sdk.definitions.asset.metadata import Metadata
 # from airflow.sdk.metadata import Metadata
 from airflow.decorators import task
+from pendulum import today
 from airflow.sdk import DAG
 
 outlet = Asset('asset_outlet')
-ten_days_ago = datetime.now() - timedelta(days=10)
 
 with DAG(
     dag_id="test_asset_event_producer",
-    start_date=ten_days_ago,
+    start_date=today('UTC').add(days=-5),
     schedule='@daily',
     tags=["asset", "AIP-74"],
     is_paused_upon_creation=False,
