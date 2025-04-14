@@ -17,10 +17,10 @@ def flip_coin():
 def decide(coin_result):
     print(coin_result)
     if "Tails" in coin_result:
-        print("dont_skip")
+        print("skip")
         return True
     else:
-        print("skip")
+        print("don't_skip")
         return False
 
 
