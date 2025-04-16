@@ -18,17 +18,23 @@ hello_task = BashOperator(
     dag=dag,
 )
 
-# sleep_task = BashOperator(
-#     task_id='test_task_sleep',
-#     bash_command='sleep 30',
-#     dag=dag,
-# )
-#
-# bye_task = BashOperator(
-#     task_id='test_task_bye',
-#     bash_command='echo "Bye World from Airflow!"',
-#     dag=dag,
-# )
+sleep_task = BashOperator(
+    task_id='test_task_sleep',
+    bash_command='sleep 30',
+    dag=dag,
+)
 
-hello_task
-# hello_task >> sleep_task >> bye_task
+bye_task = BashOperator(
+    task_id='test_task_bye',
+    bash_command='echo "Bye World from Airflow!"',
+    dag=dag,
+)
+
+hello_again = BashOperator(
+    task_id='test_task_hello2',
+    bash_command='echo "Hello World from Airflow!"',
+    dag=dag,
+)
+
+# hello_task
+hello_task >> sleep_task >> bye_task >> hello_again
