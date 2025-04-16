@@ -18,11 +18,11 @@ hello_task = BashOperator(
     dag=dag,
 )
 
-sleep_task = BashOperator(
-    task_id='test_task_sleep',
-    bash_command='sleep 30',
-    dag=dag,
-)
+# sleep_task = BashOperator(
+#     task_id='test_task_sleep',
+#     bash_command='sleep 30',
+#     dag=dag,
+# )
 
 bye_task = BashOperator(
     task_id='test_task_bye',
@@ -37,4 +37,4 @@ hello_again = BashOperator(
 )
 
 # hello_task
-hello_task >> sleep_task >> bye_task >> hello_again
+hello_task >> bye_task >> hello_again
