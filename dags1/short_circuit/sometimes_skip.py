@@ -9,14 +9,14 @@ from random import randint
 @task
 def flip_coin():
     if randint(0, 1):
-        return "Tails"
-    else:
         return "Heads"
+    else:
+        return "Tails"
 
 
 def decide(coin_result):
     print(coin_result)
-    if "Heads" in coin_result:
+    if "Tails" in coin_result:
         print("skip")
         return True
     else:
@@ -70,7 +70,7 @@ def short_circuit_sometimes_skip():
         >> ShortCircuitOperator(
             task_id="decide", op_args=[decision], python_callable=decide
         )
-        >> do_thing("skip_on_heads")
+        >> do_thing("skip_on_tails")
         >> done
     )
     decision >> do_thing("run_always") >> done >> do_thing("also_run_always")
