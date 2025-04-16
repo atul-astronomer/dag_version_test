@@ -17,11 +17,11 @@ def example_simplest_dag():
 
     my_task2()
 
-    # @task
-    # def my_task3():
-    #     pass
-    #
-    # my_task3()
+    @task
+    def my_task3():
+        pass
+
+    my_task3()
 
 
 example_simplest_dag()
