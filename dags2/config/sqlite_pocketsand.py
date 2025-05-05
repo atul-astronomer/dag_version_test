@@ -3,7 +3,7 @@ from textwrap import dedent, indent
 
 from airflow.decorators import dag
 
-from sqlite_pocketsand import (
+from plugins.sqlite_pocketsand import (
     conn_id,
     create_connection,
     test_connection,

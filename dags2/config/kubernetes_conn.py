@@ -3,7 +3,7 @@ from textwrap import dedent, indent
 
 from airflow.decorators import dag
 
-from k8s_default_conn import (
+from plugins.k8s_default_conn import (
     conn_id,
     create_connection,
 )

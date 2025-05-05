@@ -2,7 +2,7 @@ from datetime import datetime
 from textwrap import dedent
 
 from airflow.decorators import dag
-from elephantsql_kashin import conn_id, create_connection, test_connection
+from plugins.elephantsql_kashin import conn_id, create_connection, test_connection
 
 
 @dag(
