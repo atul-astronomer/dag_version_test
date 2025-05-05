@@ -7,7 +7,7 @@ from airflow.utils.state import TaskInstanceState
 from airflow.exceptions import AirflowNotFoundException
 from airflow import settings
 
-from airflow_dag_introspection import log_checker, assert_the_task_states, add_conn, delete_conn
+from plugins.airflow_dag_introspection import log_checker, assert_the_task_states, add_conn, delete_conn
 
 from datetime import datetime, timedelta
 

@@ -3,7 +3,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 
-from airflow_dag_introspection import log_checker
+from plugins.airflow_dag_introspection import log_checker
 
 docs = """
 ####Purpose

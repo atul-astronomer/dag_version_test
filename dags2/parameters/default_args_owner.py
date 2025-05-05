@@ -4,7 +4,7 @@ from airflow.operators.dummy import DummyOperator
 from airflow.utils.dates import days_ago
 
 from datetime import datetime, timedelta
-from airflow_dag_introspection import log_checker
+from plugins.airflow_dag_introspection import log_checker
 
 docs = """
 ####Purpose

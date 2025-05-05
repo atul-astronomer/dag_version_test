@@ -3,7 +3,7 @@ from airflow.operators.dummy import DummyOperator
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 
-from airflow_dag_introspection import log_checker
+from plugins.airflow_dag_introspection import log_checker
 
 docs = """
 ####Note:

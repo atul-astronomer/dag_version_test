@@ -4,7 +4,7 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.log.log_reader import TaskLogReader
 from airflow.utils.dates import days_ago
 
-from airflow_dag_introspection import log_checker
+from plugins.airflow_dag_introspection import log_checker
 
 docs = """
 ####Context

@@ -5,7 +5,7 @@ from airflow.operators.bash import BashOperator
 from airflow.macros import datetime_diff_for_humans, ds_add, ds_format, random
 from airflow.utils.dates import days_ago
 
-from airflow_dag_introspection import log_checker
+from plugins.airflow_dag_introspection import log_checker
 from datetime import datetime, time, timedelta
 from dateutil.parser import *
 from uuid import uuid4
