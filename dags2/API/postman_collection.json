@@ -1,0 +1,6861 @@
+{
+	"info": {
+		"_postman_id": "c50b4d0c-ff41-4524-b3bc-c5b77bb88e47",
+		"name": "AIRFLOW_RESTAPI_DEPLOYMENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18160534"
+	},
+	"item": [
+		{
+			"name": "connection",
+			"item": [
+				{
+					"name": "Create connection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"connection_id\": \"string\",\n\"conn_type\": \"string\",\n\"host\": \"string\",\n\"login\": \"string\",\n\"schema\": \"string\",\n\"port\": 0,\n\"password\": \"pa$$word\",\n\"extra\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/connections",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create connection with extra masked",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"connection_id\": \"{{connection_name}}\",\n\"conn_type\": \"string\",\n\"host\": \"string\",\n\"login\": \"string\",\n\"schema\": \"string\",\n\"port\": 0,\n\"password\": \"pa$$word\",\n\"extra\": \"{\\\"api_token\\\":\\\"val\\\"}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/connections",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List connections",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/connections",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a connection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/connections/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a masked connection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Validate response',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"The response has all properties\", () => {",
+									"    //parse the response JSON and test three properties",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.have.all.keys      ",
+									"          (",
+									"            'conn_type',",
+									"            'connection_id',",
+									"            'description',",
+									"            'extra',",
+									"            'host',",
+									"            'login',",
+									"            'port',",
+									"            'schema'",
+									"        );",
+									"    pm.expect(responseJson.extra).to.eql(\"{\\\"api_token\\\": \\\"***\\\"}\");",
+									" ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/connections/{{connection_name}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"{{connection_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a connection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"port\": 8080}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/connections/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a connection[update_mask]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"port\": 80}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/connections/string?update_mask=port",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"string"
+							],
+							"query": [
+								{
+									"key": "update_mask",
+									"value": "port"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a connection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/connections/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"string"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "DAG",
+			"item": [
+				{
+					"name": "Pre-triggered a dag run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"execution_date\", jsonData.dag_runs[jsonData.dag_runs.length - 1].dag_run_id.split(\"__\")[1]);\r",
+									"setTimeout(function(){}, 5000);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List dags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get basic info about a dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\": false}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a mapped dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\": false}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a xcom dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\": false}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{xcom_dag_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{xcom_dag_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tasks for dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"    let jsonData=pm.response.json();",
+									"    pm.expect(jsonData.tasks[0].is_mapped).to.eql(false);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/tasks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get simplified representation of a dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/details",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get as simplified representation of a task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/tasks/{{task_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"tasks",
+								"{{task_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear a set of task instances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"dry_run\": true,\n\"only_failed\": true,\n\"only_running\": false,\n\"include_subdags\": true,\n\"include_parentdag\": true,\n\"reset_dag_runs\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/clearTaskInstances",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"clearTaskInstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set task instances state",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"dry_run\": true,\n\"task_id\": \"{{task_id}}\",\n\"execution_date\": \"{{execution_date}}\",\n\"include_upstream\": true,\n\"include_downstream\": true,\n\"include_future\": true,\n\"include_past\": true,\n\"new_state\": \"success\"\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/updateTaskInstancesState",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"updateTaskInstancesState"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter dags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags?tags={{tag_name}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "tags",
+									"value": "{{tag_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(pm.response.status.toLowerCase()).to.be.eq(\"ok\");   \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{delete_dag}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{delete_dag}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unpause Dags By Dag Id Filter Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all dags are unpaused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(false);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\": false}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=~",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "~"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause Dags By Dag Id Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all dags are paused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(true);\r",
+									"    }\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\":true}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=~",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "~"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause Dags By Dag Id Filter Like",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all example dags are paused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(true);\r",
+									"        pm.expect(jsonData.dags[i].dag_id).to.contains(\"example\");\r",
+									"    }\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\":true}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=example_",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "example_"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause Dags By Dag Id Filter only active",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all example dags are paused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_active).to.eql(true);\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(true);\r",
+									"    }\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\":true}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=~&&only_active=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "~"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "only_active",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause Dags By Dag Id Filter only active false",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all example dags are paused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_active).to.be.oneOf([true, false]);\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(true);\r",
+									"    }\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\":true}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=~&&only_active=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "~"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "only_active",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause Dags By Dag Id Filter only active false Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all example dags are paused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_active).to.eql(true);\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(true);\r",
+									"       // pm.expect(jsonData.dags[i].tags).to.eql(\"core\");\r",
+									"    }\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\":true}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=~&&tags=core",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "~"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "tags",
+									"value": "core"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unpause Dags By Dag Id Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying all dags are unpaused\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (var i = 0; i < jsonData.dags.length; i++){\r",
+									"        pm.expect(jsonData.dags[i].is_paused).to.eql(false);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"is_paused\": false}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags?dag_id_pattern=~",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags"
+							],
+							"query": [
+								{
+									"key": "dag_id_pattern",
+									"value": "~"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mapped Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verifying dag is mapped\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    let jsonData=pm.response.json();",
+									"    pm.expect(jsonData.tasks[0].is_mapped).to.eql(true);",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}/tasks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Running this folder requires you have a dag named branch_and_subdag",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "a8a4a7603a9fb0cbe15536415a484b89\n",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "DAGRUNS",
+			"item": [
+				{
+					"name": "Patch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List DAGRUNS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trigger a dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    ",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.collectionVariables.set('dag_run_id', jsonData.dag_run_id)",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date\": \"{{$isoTimestamp}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trigger a mapped dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    ",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.collectionVariables.set('mapped_dag_run_id', jsonData.dag_run_id)",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date\": \"{{$isoTimestamp}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List dagruns batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date_lte\": \"{{$isoTimestamp}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/~/dagRuns/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"~",
+								"dagRuns",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear a dag run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Clear a dag run',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dry_run\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/clear",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a dag run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Modify a dag run',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"state\": \"success\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set note",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set task note\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    pm.expect(jsonData.note).to.eql(\"dummy notes\");",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"note\": \"dummy notes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances/{{task_id}}/setNote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"taskInstances",
+								"{{task_id}}",
+								"setNote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set note with map index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set task note with mapped task\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    pm.expect(jsonData.note).to.eql(\"mapped_notes\");",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"note\": \"mapped_notes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}/dagRuns/{{mapped_dag_run_id}}/taskInstances/{{mapped_task_id}}/0/setNote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}",
+								"dagRuns",
+								"{{mapped_dag_run_id}}",
+								"taskInstances",
+								"{{mapped_task_id}}",
+								"0",
+								"setNote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Dag Run note",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"     var jsonData = JSON.parse(responseBody);",
+									"    pm.expect(jsonData.note).to.eql(\"dag run notes\");",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"note\": \"dag run notes\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/setNote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"setNote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EventLog",
+			"item": [
+				{
+					"name": "List log entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/eventLogs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eventLogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a log entry",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/eventLogs/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eventLogs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ImportError",
+			"item": [
+				{
+					"name": "List import errors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/importErrors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"importErrors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an import error",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/importErrors/{{import_error_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"importErrors",
+								"{{import_error_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Monitoring",
+			"item": [
+				{
+					"name": "Get an instance status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/health",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get version information",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/version",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"version"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pool",
+			"item": [
+				{
+					"name": "Create pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"strictSSL": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"string\",\n\"slots\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pools",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List pools",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pools/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pools",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pools/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pools",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"slots\": 100, \"name\": \"string\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pools/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pools",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(204);",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pools/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pools",
+								"string"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TaskInstances",
+			"item": [
+				{
+					"name": "PreReq-Trigger a mapped dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    ",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"dag_run_id\", jsonData.dag_run_id);",
+									"setTimeout(function(){}, 5000);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date\": \"{{$isoTimestamp}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List taskinstances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"taskInstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a task instance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances/{{task_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"taskInstances",
+								"{{task_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a list of task instances(batch)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date_gte\": \"2020-11-10T11:47:58Z\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/~/dagRuns/~/taskInstances/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"~",
+								"dagRuns",
+								"~",
+								"taskInstances",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List extra link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances/{{task_id}}/links",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"taskInstances",
+								"{{task_id}}",
+								"links"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get logs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances/{{task_id}}/logs/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}",
+								"taskInstances",
+								"{{task_id}}",
+								"logs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of all mapped task instances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}/dagRuns/{{mapped_dag_run_id}}/taskInstances/{{mapped_task_id}}/listMapped",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}",
+								"dagRuns",
+								"{{mapped_dag_run_id}}",
+								"taskInstances",
+								"{{mapped_task_id}}",
+								"listMapped"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of a mapped task instance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{mapped_dag_id}}/dagRuns/{{mapped_dag_run_id}}/taskInstances/{{mapped_task_id}}/0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{mapped_dag_id}}",
+								"dagRuns",
+								"{{mapped_dag_run_id}}",
+								"taskInstances",
+								"{{mapped_task_id}}",
+								"0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "Create variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"key\": \"string\",\n\"value\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/variables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List variables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"strictSSL": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/variables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/variables/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"variables",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"key\" : \"string\",\n\"value\": \"myvalue\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/variables/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"variables",
+								"string"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(204);",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"key\" : \"string\",\n\"value\": \"myvalue\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/variables/string",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"variables",
+								"string"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "XCOM",
+			"item": [
+				{
+					"name": "PreReq-Trigger a dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    ",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"xcom_dag_run_id\", jsonData.dag_run_id);",
+									"setTimeout(function(){}, 8000);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date\": \"{{$isoTimestamp}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{xcom_dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{xcom_dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Xcom entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{xcom_dag_id}}/dagRuns/{{xcom_dag_run_id}}/taskInstances/{{xcom_task_id}}/xcomEntries",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{xcom_dag_id}}",
+								"dagRuns",
+								"{{xcom_dag_run_id}}",
+								"taskInstances",
+								"{{xcom_task_id}}",
+								"xcomEntries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an xcom entry",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{xcom_dag_id}}/dagRuns/{{xcom_dag_run_id}}/taskInstances/{{xcom_task_id}}/xcomEntries/{{xcom_key}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{xcom_dag_id}}",
+								"dagRuns",
+								"{{xcom_dag_run_id}}",
+								"taskInstances",
+								"{{xcom_task_id}}",
+								"xcomEntries",
+								"{{xcom_key}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DEL DAGRUN",
+			"item": [
+				{
+					"name": "PreReq-Trigger a dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(200);",
+									"    ",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"dag_run_id\", jsonData.dag_run_id);",
+									"setTimeout(function(){}, 5000);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"execution_date\": \"{{$isoTimestamp}}\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a dagrun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"    pm.response.to.have.status(204);",
+									"    pm.response.to.not.be.withBody;",
+									"    pm.response.to.not.be.json;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dag_id}}",
+								"dagRuns",
+								"{{dag_run_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "List Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									"  ",
+									"        pm.response.to.have.status(200)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"user_id\", pm.variables.replaceIn(\"{{$randomFirstName}}{{$randomInt}}\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Success',function(){",
+									" pm.response.to.have.status(200)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{user_id}}\",\r\n    \"password\": \"password1\",\r\n    \"email\": \"{{user_id}}@example.com\",\r\n    \"first_name\": \"user2\",\r\n    \"last_name\": \"test1\",\r\n    \"roles\":[{\"name\":\"Admin\"},{\"name\":\"Viewer\"}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Delete a User',function(){",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/{{user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"username\": \"username1\",\r\n        \"password\": \"password\",\r\n        \"email\": \"username1@example.com\",\r\n        \"first_name\": \"user1\",\r\n        \"last_name\": \"test1\",\r\n        \"roles\":[\r\n                    {\r\n                        \"name\": \"Viewer\"\r\n                    }\r\n                ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/username1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"username1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NegativeTest Copy",
+			"item": [
+				{
+					"name": "User_ngtv",
+					"item": [
+						{
+							"name": "List Users 404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"    pm.response.to.be.notFound;\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"     \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Users 401",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    if(pm.variables.get(\"url\").includes(\"run\"))\r",
+											"        pm.response.to.have.status(401);\r",
+											"    else\r",
+											"        pm.response.to.have.status(200)\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "token",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User 400",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"    pm.response.to.be.badRequest;\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"  \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User 403",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"        pm.response.to.have.status(200)\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"     \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{user_id}}\",\r\n    \"password\": \"password1\",\r\n    \"email\": \"{{user_id}}@example.com\",\r\n    \"first_name\": \"user2\",\r\n    \"last_name\": \"test1\",\r\n    \"roles\":[{\"name\":\"Admin\"},{\"name\":\"Viewer\"}]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User 404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"});\r"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/{{user_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a  User 400",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/{{user_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a  User 404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"  \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{user_id}}\",\r\n    \"password\": \"password1\",\r\n    \"email\": \"{{user_id}}@example.com\",\r\n    \"first_name\": \"user2\",\r\n    \"last_name\": \"test1\",\r\n    \"roles\":[{\"name\":\"Admin\"},{\"name\":\"Viewer\"}]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/{{user_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TaskInstances_ngtv",
+					"item": [
+						{
+							"name": "List taskinstances_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/{{dag_id}}/dagRuns/xc1/taskInstance",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"{{dag_id}}",
+										"dagRuns",
+										"xc1",
+										"taskInstance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a task instance_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"     \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/example_dag/dagRuns/4567/taskInstances/2234",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"example_dag",
+										"dagRuns",
+										"4567",
+										"taskInstances",
+										"2234"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a list of task instances(batch)_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"execution_date_gte\": \"2020-11-10T11:47:58Z\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dags/~/dagRuns/~/taskInstances/list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"~",
+										"dagRuns",
+										"~",
+										"taskInstances",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List extra link_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances/{{task_id}}/links",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"{{dag_id}}",
+										"dagRuns",
+										"{{dag_run_id}}",
+										"taskInstances",
+										"{{task_id}}",
+										"links"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get logs_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/{{dag_id}}/dagRuns/{{dag_run_id}}/taskInstances/{{task_id}}/logs/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"{{dag_id}}",
+										"dagRuns",
+										"{{dag_run_id}}",
+										"taskInstances",
+										"{{task_id}}",
+										"logs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DAG_ngtv",
+					"item": [
+						{
+							"name": "ListDAGs_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/dags/not_existing_dag11",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"not_existing_dag11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListDAGs_401",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/dags",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get basic info about a dag_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/dags/example_dag",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"dags",
+										"example_dag"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a dag_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"is_paused\": false}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dags/not_a_dag",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"not_a_dag"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get tasks for dag_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dags/tasks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get simplified representation of a dag_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/autherizationdetails",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"autherizationdetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get as simplified representation of a task_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/autherization/tasks/abc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"autherization",
+										"tasks",
+										"abc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear a set of task instances_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"    pm.response.to.be.notFound;\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"dry_run\": true,\n\"only_failed\": true,\n\"only_running\": false,\n\"include_subdags\": true,\n\"include_parentdag\": true,\n\"reset_dag_runs\": true\n}"
+								},
+								"url": {
+									"raw": "{{url}}/dags/dag_id/clearTaskInstances",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"dag_id",
+										"clearTaskInstances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set task instances state_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"    pm.response.to.be.notFound;\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"dry_run\": true,\n\"task_id\": \"{{task_id}}\",\n\"execution_date\": \"2020-11-10T11:47:58Z\",\n\"include_upstream\": true,\n\"include_downstream\": true,\n\"include_future\": true,\n\"include_past\": true,\n\"new_state\": \"success\"\n}\n"
+								},
+								"url": {
+									"raw": "{{url}}/dags/dag_id/updateTaskInstancesState",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"dag_id",
+										"updateTaskInstancesState"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Running this folder requires you have a dag named branch_and_subdag",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "DAGRUNS_ngtv",
+					"item": [
+						{
+							"name": "List DAGRUNS_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/autherization/not_a_dag/dagRuns",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"autherization",
+										"not_a_dag",
+										"dagRuns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trigger a dagrun_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"     \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"execution_date\": \"2020-11-10T11:47:58Z\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dags/dag_id/dagRuns",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"dag_id",
+										"dagRuns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List dagruns batch_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"execution_date_lte\": \"2020-11-20T11:47:58Z\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dags/dag_id/tasks/dagRuns/list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"dag_id",
+										"tasks",
+										"dagRuns",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a dagrun_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"  \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dags/autherization/tasks/no_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dags",
+										"autherization",
+										"tasks",
+										"no_id"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Variables_negtv",
+					"item": [
+						{
+							"name": "variables_Post 400",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"    pm.response.to.be.badRequest;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"type\": \"string\",\r\n  \"title\": \"string\",\r\n  \"status\": 0,\r\n  \"detail\": \"string\",\r\n  \"instance\": \"string\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/variables",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"variables"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "connection _ngtv",
+					"item": [
+						{
+							"name": "List connections_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/connection",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"connection"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create connection_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											" \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"connection_id\": \"string\",\n\"conn_type\": \"string\",\n\"host\": \"string\",\n\"login\": \"string\",\n\"schema\": \"string\",\n\"port\": 0,\n\"password\": \"pa$$word\",\n\"extra\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/connection",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"connection"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a connection_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"   \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/connection/string",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"connection",
+										"string"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a connection_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"     \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"port\": 8080}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/connection/string",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"connection",
+										"string"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a connection[update_mask]_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"     \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"port\": 80}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/connections/string1?update_mask=port",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"connections",
+										"string1"
+									],
+									"query": [
+										{
+											"key": "update_mask",
+											"value": "port"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a connection_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"response must have a json body\", function () {\r",
+											"     pm.response.to.be.withBody;\r",
+											"\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/connections/string1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"connections",
+										"string1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Datasets",
+			"item": [
+				{
+					"name": "List Datasets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List datasets',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"    ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/datasets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"datasets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Datasets Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List datasets',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"    var jsonData = JSON.parse(responseBody);",
+									"pm.collectionVariables.set('dataset_dag_run_id', jsonData.dataset_events[0].created_dagruns[0].dag_run_id);",
+									"pm.collectionVariables.set('dataset_dag_id', jsonData.dataset_events[0].created_dagruns[0].dag_id);",
+									"pm.collectionVariables.set('dataset_uri', jsonData.dataset_events[0].dataset_uri);",
+									"console.log(jsonData.dataset_events[0].created_dagruns[0].dag_run_id)",
+									"setTimeout(function(){}, 5000);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/datasets/events",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"datasets",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get datasets events for dag run",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dags/{{dataset_dag_id}}/dagRuns/{{dataset_dag_run_id}}/upstreamDatasetEvents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dags",
+								"{{dataset_dag_id}}",
+								"dagRuns",
+								"{{dataset_dag_run_id}}",
+								"upstreamDatasetEvents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a datasets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List datasets',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"  ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/datasets/{{dataset_uri}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"datasets",
+								"{{dataset_uri}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Providers",
+			"item": [
+				{
+					"name": "List Providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List Providers',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/providers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plugins",
+			"item": [
+				{
+					"name": "List Plugins",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List Plugins',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/plugins",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DagWarning",
+			"item": [
+				{
+					"name": "List Dag warnings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dagWarnings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dagWarnings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Permission",
+			"item": [
+				{
+					"name": "List Permissions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List Providers',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "List Roles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('List Roles',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Creata a role',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"actions\": [\n    {\n      \"action\": {\n        \"name\": \"can_edit\"\n      },\n      \"resource\": {\n        \"name\": \"My Password\"\n      }\n    }\n  ],\n  \"name\": \"new_role\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get a role',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/roles/new_role",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"new_role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update a role',function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"actions\": [\n    {\n      \"action\": {\n        \"name\": \"can_delete\"\n      },\n      \"resource\": {\n        \"name\": \"My Password\"\n      }\n    }\n  ],\n  \"name\": \"new_role\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/roles/new_role",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"new_role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Delete a role',function(){",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/roles/new_role",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"new_role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080/api/v1"
+		},
+		{
+			"key": "token",
+			"value": "service-account-token"
+		},
+		{
+			"key": "task_id",
+			"value": "branch1"
+		},
+		{
+			"key": "dag_id",
+			"value": "branch_python_operator"
+		},
+		{
+			"key": "dag_run_id",
+			"value": "scheduled__2020-11-11T00:00:00+00:00"
+		},
+		{
+			"key": "xcom_key",
+			"value": "return_value"
+		},
+		{
+			"key": "user_id",
+			"value": "username1"
+		},
+		{
+			"key": "tag_name",
+			"value": "core"
+		},
+		{
+			"key": "dag_id_pattern",
+			"value": "example",
+			"type": "string"
+		},
+		{
+			"key": "import_error_id",
+			"value": ""
+		},
+		{
+			"key": "connection_name",
+			"value": "ExtraMasked",
+			"type": "string"
+		},
+		{
+			"key": "mapped_dag_id",
+			"value": "kpo_mapped",
+			"type": "string"
+		},
+		{
+			"key": "mapped_task_id",
+			"value": "cowsay_mapped",
+			"type": "string"
+		},
+		{
+			"key": "dataset_dag_run_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "dataset_dag_id",
+			"value": "simple_dataset_source",
+			"type": "string"
+		},
+		{
+			"key": "dataset_uri",
+			"value": ""
+		},
+		{
+			"key": "delete_dag",
+			"value": "catchup_test"
+		},
+		{
+			"key": "xcom_dag_id",
+			"value": "branch_python_operator"
+		}
+	]
+}

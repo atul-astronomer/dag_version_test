@@ -1,0 +1,87 @@
+{
+	"id": "98f5aa6e-8808-48f7-b574-73ef877fa87b",
+	"name": "DevEnvironment",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://astro01.astronomer-stage.run/dihkzyxg/api/v1/",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlUb2tlbklkIjoiY2xuMDQyOW1jMDBjOTAxbjJhZmdiZ2hiOSIsImF1ZCI6ImFzdHJvbm9tZXItZWUiLCJpYXQiOjE2OTU3MjAyNjMsImlzQXN0cm9ub21lckdlbmVyYXRlZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXN0cm9ub21lci1zdGFnZS5pbyIsImtpZCI6ImNsZjJ6NXY1OTAwaXYwMW45ejUybnMzaG0iLCJwZXJtaXNzaW9ucyI6WyJhcGlUb2tlbklkOmNsbjA0MjltYzAwYzkwMW4yYWZnYmdoYjkiLCJvcmdhbml6YXRpb25JZDpja29uNW9ic3UwMzMyMjgyMm52bTZ5dW1rIiwib3JnU2hvcnROYW1lOmFzdHJvMDEiXSwic2NvcGUiOiJhcGlUb2tlbklkOmNsbjA0MjltYzAwYzkwMW4yYWZnYmdoYjkgb3JnYW5pemF0aW9uSWQ6Y2tvbjVvYnN1MDMzMjI4MjJudm02eXVtayBvcmdTaG9ydE5hbWU6YXN0cm8wMSIsInN1YiI6ImNsMWF1Y29kZTEwMTUzNWM5MHJsOXU3YzI3eSIsInZlcnNpb24iOiJjbG4wNDI5bWMwMGM4MDFuMmsxczg5MGFwIn0.OYBEeuJ1kiGQVNswR_OJOHFrO28etR63np_N4X2GvbUSTaz2i0Ce8Y7UKx0aDJ_ceUf-i60ceIjJDHKxSs5IVkeud_earGhbNsj2UvLJ76slPL00rrR16GS0iWXfYyDCUGJifdCrj8ZVljfFgT92YnP_hV0uJOGaUZiyybVfWxybSM3dzntRs9IkySlKmru_rrEoyF89SrA76K-K7Itit9MXXydt7q76xrCGTii_vdsv_MLcbkiHRtP5wHfVhHZEHAJBIBnaAEIASfBfVi4k5WsYbtFI0ynxK0NU2xkWdKOei5IrOALro7fKPWzOZ3zTC2qoqF7Hom1ByV-0Xzc5qQ",
+			"enabled": true
+		},
+		{
+			"key": "dag_id",
+			"value": "branch_python_operator",
+			"enabled": true
+		},
+		{
+			"key": "task_id",
+			"value": "branch1",
+			"enabled": true
+		},
+		{
+			"key": "xcom_dag_id",
+			"value": "branch_python_operator",
+			"enabled": true
+		},
+		{
+			"key": "xcom_task_id",
+			"value": "branch1",
+			"enabled": true
+		},
+		{
+			"key": "xcom_key",
+			"value": "return_value",
+			"enabled": true
+		},
+		{
+			"key": "tag_name",
+			"value": "core",
+			"enabled": true
+		},
+				{
+			"key": "user_id",
+			"value": "username1",
+			"enabled": true
+		},
+		{
+			"key": "connection_name",
+			"value": "ExtraMasked",
+			"enabled": true
+		},
+			{
+			"key": "mapped_dag_id",
+			"value": "kpo_mapped",
+			"enabled": true
+		},
+		{
+			"key": "mapped_task_id",
+			"value": "cowsay_mapped",
+			"enabled": true
+		},
+		{
+			"key": "'api_token'",
+			"value": "test",
+			"enabled": true
+		},
+		{
+			"key": "delete_dag",
+			"value": "catchup_test",
+			"enabled": true
+		},
+		{
+			"key": "delete_dag",
+			"value": "simple_dataset_source",
+			"enabled": true
+		}
+
+
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-01-27T23:01:24.953Z",
+	"_postman_exported_using": "Postman/8.0.2"
+}
+
