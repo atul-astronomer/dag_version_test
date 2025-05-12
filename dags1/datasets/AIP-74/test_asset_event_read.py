@@ -1,11 +1,10 @@
 from datetime import datetime
 
-from airflow.sdk import Asset
-from airflow.sdk.definitions.asset.metadata import Metadata
-# from airflow.sdk.metadata import Metadata
 from airflow.decorators import task
-from pendulum import today
+from airflow.sdk import Asset
 from airflow.sdk import DAG
+from airflow.sdk.definitions.asset.metadata import Metadata
+from pendulum import today
 
 outlet = Asset('asset_outlet')
 
@@ -18,10 +17,10 @@ with DAG(
     catchup=True
 ) as dag:
     @task(outlets=[outlet])
-    def asset_with_extra_by_yield2():
-        yield Metadata(outlet, {"hi": "bye2"})
+    def asset_with_extra_by_yield():
+        yield Metadata(outlet, {"hi": "bye"})
 
-    asset_with_extra_by_yield2()
+    asset_with_extra_by_yield()
 
 with DAG(
     dag_id="test_asset_event_consumer",
