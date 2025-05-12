@@ -30,11 +30,11 @@ bye_task = BashOperator(
     dag=dag,
 )
 
-# hello_again = BashOperator(
-#     task_id='test_task_hello2',
-#     bash_command='echo "Hello World from Airflow!"',
-#     dag=dag,
-# )
+hello_again = BashOperator(
+    task_id='test_task_hello2',
+    bash_command='echo "Hello World from Airflow!"',
+    dag=dag,
+)
 
 # hello_task
-hello_task >> bye_task
+hello_task >> bye_task >> hello_again
