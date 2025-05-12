@@ -17,10 +17,10 @@ with DAG(
     catchup=True
 ) as dag:
     @task(outlets=[outlet])
-    def asset_with_extra_by_yield():
-        yield Metadata(outlet, {"hi": "bye"})
+    def asset_with_extra_by_yield2():
+        yield Metadata(outlet, {"hi": "bye2"})
 
-    asset_with_extra_by_yield()
+    asset_with_extra_by_yield2()
 
 with DAG(
     dag_id="test_asset_event_consumer",
