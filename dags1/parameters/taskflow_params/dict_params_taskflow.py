@@ -34,7 +34,7 @@ It does this by asserting that the type of the data passed through is the type t
 # doesn't show in config when clicking 'trigger_dag_with config'
 
 @task
-def fail_if_invalid(val):
+def fail_if_invalid1(val):
         print(val)
         assert type(val) == dict
 
@@ -46,6 +46,6 @@ def fail_if_invalid(val):
     tags=["core", "taskflow-api", "dagparams"],
 )
 def dict_params_taskflow(dictionary):
-    fail_if_invalid(dictionary)
+    fail_if_invalid1(dictionary)
 
 dag = dict_params_taskflow({"b": 1, "d": 2})
