@@ -33,7 +33,7 @@ with DAG(
     schedule=None,
     tags=["produces", "asset-scheduled"],
 ) as dag2:
-    PythonOperator(task_id="producing_task_1231", python_callable=func, outlets=[dag2_asset])
+    PythonOperator(task_id="producing_task_12314", python_callable=func, outlets=[dag2_asset])
 
 with DAG(
     dag_id="asset_produces_3",
@@ -42,4 +42,4 @@ with DAG(
     schedule=[dag1_asset_2, dag2_asset],
     tags=["produces", "asset-scheduled"],
 ) as dag2:
-    PythonOperator(task_id="producing_task_1231", python_callable=func)
+    PythonOperator(task_id="producing_task_12314", python_callable=func)
