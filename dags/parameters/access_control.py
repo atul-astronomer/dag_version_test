@@ -30,4 +30,4 @@ dag = DAG(
     tags=["dagparams"],
 )
 
-t1 = BashOperator(task_id="should_pass", bash_command="date", dag=dag)
+t1 = BashOperator(task_id="should_pass2", bash_command="date", dag=dag)
