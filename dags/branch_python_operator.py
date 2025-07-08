@@ -32,6 +32,7 @@ def xcoms_check(**context):
 
     assert val_to_check == {"this": "branch", "should": "return"}
     assert should_be_none == None
+    assert True
 
 with DAG(
     dag_id="branch_python_operator",
