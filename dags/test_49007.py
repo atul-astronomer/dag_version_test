@@ -10,5 +10,5 @@ with DAG(dag_id="demo"):
     # sleep >> hello >> astronomer
 
     # Second run
-    sleep = BashOperator(task_id="sleep", bash_command="sleep 300")
+    sleep = BashOperator(task_id="sleep", bash_command="sleep 30")
     sleep
