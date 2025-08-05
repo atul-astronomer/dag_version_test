@@ -56,10 +56,12 @@ def subtractor(start_date, future_date):
     for i in start_date:
         if "-"==i:
             start_date = start_date.replace("-", "_")
+            print(start_date)
 
     for i in future_date:
         if "-"==i:
             future_date = future_date.replace("-", "_")
+            print(future_date)
 
     print(f"The newly filtered start date is {start_date} and the newly filtered future date is {future_date}")
     #2021_11_25 +10:00, 2135_11_25 +13:00
