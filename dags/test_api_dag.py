@@ -5,7 +5,7 @@ from airflow.sdk import DAG
 
 dag = DAG(
     'test_api_dag',
-    start_date=datetime(2025, 4, 1, 3, 28, 0),
+    start_date=datetime(2025, 9, 1, 3, 28, 0),
     schedule='@daily',
     is_paused_upon_creation=False,
     catchup=True

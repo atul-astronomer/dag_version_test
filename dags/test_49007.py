@@ -11,4 +11,6 @@ with DAG(dag_id="demo"):
 
     # Second run
     sleep = BashOperator(task_id="sleep", bash_command="sleep 30")
-    sleep
+    hello = BashOperator(task_id="hello", bash_command="echo Hello")
+
+    sleep >> hello
