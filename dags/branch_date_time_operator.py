@@ -29,14 +29,14 @@ with DAG(
 ) as dag:
 
     d0 = EmptyOperator(task_id="dummy0", start_date=today('UTC').add(days=-3))
-    d1 = EmptyOperator(task_id="dummy1", start_date=today('UTC').add(days=-3))
+    # d1 = EmptyOperator(task_id="dummy1", start_date=today('UTC').add(days=-3))
 
     d2 = EmptyOperator(task_id="dummy2")
     d3 = EmptyOperator(task_id="dummy3")
 
     bdto = BranchDateTimeOperator(
         task_id="branch_datetime",
-        follow_task_ids_if_true=["dummy0", "dummy1"],
+        follow_task_ids_if_true=["dummy0"],
         follow_task_ids_if_false=["dummy2", "dummy3"],
         # target_upper and target_lower are time ranges for tasks to be in
         target_upper=time(hour=2, minute=33),
@@ -57,4 +57,4 @@ with DAG(
 
     )
 
-bdto >> [d0, d1, d2, d3] >> py0
+bdto >> [d0, d2, d3] >> py0
