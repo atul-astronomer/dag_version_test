@@ -21,4 +21,11 @@ bye_task = BashOperator(
     dag=dag,
 )
 
-hello_task >> bye_task
+sleep_task = BashOperator(
+    task_id='sleep_task',
+    bash_command='sleep 10',
+    do_xcom_push = True,
+    dag=dag,
+)
+
+hello_task >> bye_task >> sleep_task
