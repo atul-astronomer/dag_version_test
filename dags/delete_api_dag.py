@@ -9,7 +9,7 @@ dag = DAG(
 
 hello_task = BashOperator(
     task_id='hello_task',
-    bash_command='echo "Hello World from Airflow!"',
+    bash_command='echo "Hello World Airflow!"',
     do_xcom_push = True,
     dag=dag,
 )
