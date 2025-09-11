@@ -8,10 +8,17 @@ dag = DAG(
 )
 
 hello_task = BashOperator(
-    task_id='delete_task',
+    task_id='hello_task',
     bash_command='echo "Hello World from Airflow!"',
     do_xcom_push = True,
     dag=dag,
 )
 
-hello_task
+bye_task = BashOperator(
+    task_id='bye_task',
+    bash_command='echo "Bye World from Airflow!"',
+    do_xcom_push = True,
+    dag=dag,
+)
+
+hello_task >> bye_task
