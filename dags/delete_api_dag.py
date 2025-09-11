@@ -1,6 +1,5 @@
 from airflow.sdk import DAG
 from airflow.providers.standard.operators.bash import BashOperator
-from datetime import datetime, timedelta
 
 dag = DAG(
     'delete_api_dag',
