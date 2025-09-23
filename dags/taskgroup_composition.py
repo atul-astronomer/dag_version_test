@@ -27,7 +27,8 @@ with DAG(
     dag_id="taskgroup_composition",
     start_date=datetime(1970, 1, 1),
     schedule=None,
-    tags=["core"]
+    tags=["core"],
+    catchup=False
 ) as dag:
 
     one = increment_each_twice_then_add(1, 2)
