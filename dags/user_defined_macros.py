@@ -46,7 +46,7 @@ with DAG(
 ) as dag:
 
     py0 = PythonOperator(
-        task_id="check_user_defined_macros1",
+        task_id="check_user_defined_macros2",
         python_callable=check_macros,
         op_args=["{{ macro1 }}", "{{ macro2 }}"],
     )
