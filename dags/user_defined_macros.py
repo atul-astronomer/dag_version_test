@@ -32,6 +32,7 @@ def user_macro2(num):
 
 
 def check_macros(func1, func2):
+    print(func1, func2)
     return func1, func2
 
 
