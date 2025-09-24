@@ -19,6 +19,6 @@ with DAG(
     schedule=None,
     tags=["taskmap"]
 ) as dag:
-    PythonOperator.partial(task_id="consumer", python_callable=consumer).expand(
+    PythonOperator.partial(task_id="consumer1", python_callable=consumer).expand(
         op_args=make_arg_lists()
     )
