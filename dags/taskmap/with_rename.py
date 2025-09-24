@@ -10,7 +10,7 @@ def onetwothree():
 
 
 @task
-def consumer(value):
+def consumer1(value):
     print(value)
 
 
